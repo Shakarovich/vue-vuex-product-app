@@ -1,3 +1,6 @@
 export default {
-  meals: ["Salmon"]
+  setSearchedMeals: {
+    loading: false,
+    data: []
+  }
 }
