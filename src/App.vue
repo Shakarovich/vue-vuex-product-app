@@ -1,10 +1,5 @@
 <template>
-  <div class="bg-gray-100 h-full">
-    <router-view/>
-    <main>
-      <router-view/>
-    </main>
-  </div>
+<router-view/>
 </template>
 
 <script setup>
