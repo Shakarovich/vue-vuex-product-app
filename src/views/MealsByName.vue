@@ -1,5 +1,5 @@
 <template>
- <div class="p-8 pb-0">
+ <div class="p-8 pb-2">
    <input type="text"
           v-model="keyword"
           class="rounded border-2 border-gray-200 w-full"
@@ -9,7 +9,7 @@
  </div>
    <div  class="grid grid-cols-1 md:grid-cols-3 gap-3">
      <div v-for="meal of meals" :key="meal.idMeal" class="bg-white shadow rounded-xl">
-       <router-link to="{name:'mealDetails'}, params:{id: meal.idMeal}">
+       <router-link :to="{name:'mealDetails', params:{id: meal.idMeal}}">
          <img :src="meal.strMealThumb" :alt="strMeal" class="rounded-t-xl w-full h-48 object-cover"/>
        </router-link>
        <div class="px-3">
