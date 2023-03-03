@@ -9,7 +9,9 @@
  </div>
    <div  class="grid grid-cols-1 md:grid-cols-3 gap-3">
      <div v-for="meal of meals" :key="meal.idMeal" class="bg-white shadow rounded-xl">
-        <img :src="meal.strMealThumb" :alt="strMeal" class="rounded-t-xl w-full h-48 object-cover"/>
+       <router-link to="/">
+         <img :src="meal.strMealThumb" :alt="strMeal" class="rounded-t-xl w-full h-48 object-cover"/>
+       </router-link>
        <div class="px-3">
          <h3 class="px-3 py-2 font-bold">{{meal.strMeal}}</h3>
          <p class="my-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, dicta?</p>
@@ -26,7 +28,7 @@
 
 
 <script setup>
-  import {ref, onMounted} from 'vue';
+  import { ref, onMounted } from 'vue';
   import {computed} from '@vue/reactivity';
   import store from "../store/index.js";
   import {useRoute} from 'vue-router';
@@ -38,9 +40,12 @@
   function searchMeals () {
     store.dispatch('searchMeals', keyword.value)
   }
+
     onMounted(() => {
       keyword.value = route.params.name
-
+      if (keyword.value) {
+        searchMeals()
+      }
     })
 
 </script>
